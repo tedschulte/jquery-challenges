@@ -38,6 +38,43 @@
 
 (function(){
 
+    const teamOneShoot = $('#teamone-shoot');
+    const teamTwoShoot = $('#teamtwo-shoot');
+    const teamOneNumShots = $('#teamone-numshots');
+    const teamTwoNumShots = $('#teamtwo-numshots')
+    const teamOneNumHits = $('#teamone-numhits');
+    const teamTwoNumHits = $('#teamtwo-numhits');
+    const reset = $('#reset');
+    const resetCount = $('#num-resets');
+
+    function getRandom() {
+      return Math.random();
+    }
+
+    teamOneShoot.click(function(){
+      teamOneNumShots.html( parseInt(teamOneNumShots.html()) + 1);
+      if (getRandom() <0.6 ){
+          teamOneNumHits.html( parseInt(teamOneNumHits.html()) + 1);
+         $("body").css("background-color", "red");
+      }
+    })
+    
+    teamTwoShoot.click(function(){
+      teamTwoNumShots.html( parseInt(teamTwoNumShots.html()) + 1);
+      if (getRandom() <0.6 ){
+        teamTwoNumHits.html( parseInt(teamTwoNumHits.html()) + 1);
+        $("body").css("background-color", "blue");
+      }
+    })
+
+    reset.click(function(){
+      resetCount.html( parseInt(resetCount.html()) + 1);
+      teamOneNumShots.html(0);
+      teamOneNumHits.html(0);
+      teamTwoNumShots.html(0);
+      teamTwoNumHits.html(0);
+      $("body").css("background-color", "white");
+  })
   //jQuery equivelent to window.onload = function{}
   //code in here wont run until page loads
   $(function(){
